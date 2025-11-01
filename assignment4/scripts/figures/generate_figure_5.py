@@ -140,8 +140,8 @@ def generate_figure_5_tau_dt(results):
     fig1, ax1 = plt.subplots(1, 1, figsize=(10, 6))
     
     ax1.plot(tau_values, peak_dt_values, 
-             color='
-             markerfacecolor='white', markeredgewidth=2, markeredgecolor='
+             color='#ff7f0e', marker='o', linewidth=2.5, markersize=8,
+             markerfacecolor='white', markeredgewidth=2, markeredgecolor='#ff7f0e',
              label='Peak DT (E1 DT-SLRU)')
 
     for i, (tau, dt) in enumerate(zip(tau_values, peak_dt_values)):
@@ -177,8 +177,8 @@ def generate_figure_5_tau_dt(results):
     fig2, ax2 = plt.subplots(1, 1, figsize=(10, 6))
     
     ax2.plot(tau_values, hit_rate_values, 
-             color='
-             markerfacecolor='white', markeredgewidth=2, markeredgecolor='
+             color='#2ca02c', marker='s', linewidth=2.5, markersize=8,
+             markerfacecolor='white', markeredgewidth=2, markeredgecolor='#2ca02c',
              label='Hit Rate (E1 DT-SLRU)')
 
     for i, (tau, hr) in enumerate(zip(tau_values, hit_rate_values)):

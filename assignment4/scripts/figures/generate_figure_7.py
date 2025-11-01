@@ -1,18 +1,5 @@
 #!/usr/bin/env python3
 
-"""
-Assignment 4 Figure 7 Generation Script
-Generates Figure 7: Peak DT vs. alpha_tti (E2 EDE ablation study)
-
-This script creates Figure 7 which analyzes how Peak Disk-head Time varies
-with different alpha_tti (EWMA for time-to-idle) values for the EDE eviction scheme.
-
-Requirements:
-- Analyze E2 (EDE) with different alpha_tti values
-- Show Peak DT sensitivity to alpha_tti parameter
-- Proper ACM sigconf formatting
-- Analysis section explaining alpha_tti impact on EWMA adaptation
-"""
 
 import json
 import lzma
@@ -124,8 +111,8 @@ def generate_figure_7_alpha_tti(results):
     adaptation_speeds = [results[alpha]['adaptation_speed'] for alpha in alpha_values]
 
     ax1.plot(alpha_values, peak_dt_values, 
-             color='
-             markerfacecolor='white', markeredgewidth=2, markeredgecolor='
+             color='#2ca02c', marker='^', linewidth=2.5, markersize=8,
+             markerfacecolor='white', markeredgewidth=2, markeredgecolor='#2ca02c',
              label='Peak DT (E2 EDE)')
 
     for i, (alpha, dt) in enumerate(zip(alpha_values, peak_dt_values)):
@@ -166,12 +153,12 @@ def generate_figure_7_alpha_tti(results):
     ax2_twin = ax2.twinx()
 
     line1 = ax2.plot(alpha_values, hit_rate_values, 
-                     color='
-                     markerfacecolor='white', markeredgewidth=2, markeredgecolor='
+                     color='#1f77b4', marker='o', linewidth=2.5, markersize=8,
+                     markerfacecolor='white', markeredgewidth=2, markeredgecolor='#1f77b4',
                      label='Hit Rate (E2 EDE)')
 
     line2 = ax2_twin.plot(alpha_values, adaptation_speeds, 
-                          color='
+                          color='#ff7f0e', marker='s', linewidth=2.0, markersize=6,
                           linestyle=':', alpha=0.8, label='Adaptation Speed')
 
     for i, (alpha, hr) in enumerate(zip(alpha_values, hit_rate_values)):
@@ -219,8 +206,8 @@ def generate_figure_7_alpha_tti(results):
     alpha_values = sorted(results.keys())
     peak_dts = [results[alpha]['peak_dt'] for alpha in alpha_values]
     
-    ax1.plot(alpha_values, peak_dts, 'o-', color='
-             markerfacecolor='white', markeredgewidth=2, markeredgecolor='
+    ax1.plot(alpha_values, peak_dts, 'o-', color='#2E86AB', linewidth=2.5, markersize=8, 
+             markerfacecolor='white', markeredgewidth=2, markeredgecolor='#2E86AB')
 
     for i, alpha in enumerate(alpha_values):
         if alpha in [0.01, 0.1, 0.3, 0.9]:
@@ -260,15 +247,15 @@ def generate_figure_7_alpha_tti(results):
     adaptation_speeds = [results[alpha]['adaptation_speed'] for alpha in alpha_values]
     accuracies = [results[alpha]['prediction_accuracy'] for alpha in alpha_values]
     
-    ax2.plot(alpha_values, hit_rates, 's-', color='
-             markerfacecolor='white', markeredgewidth=2, markeredgecolor='
+    ax2.plot(alpha_values, hit_rates, 's-', color='#A23B72', linewidth=2.5, markersize=8,
+             markerfacecolor='white', markeredgewidth=2, markeredgecolor='#A23B72',
              label='Hit Rate (%)')
     ax2_twin = ax2.twinx()
-    ax2_twin.plot(alpha_values, adaptation_speeds, '^-', color='
-                  markerfacecolor='white', markeredgewidth=2, markeredgecolor='
+    ax2_twin.plot(alpha_values, adaptation_speeds, '^-', color='#F18F01', linewidth=2.5, markersize=8,
+                  markerfacecolor='white', markeredgewidth=2, markeredgecolor='#F18F01',
                   label='Adaptation Speed')
-    ax2_twin.plot(alpha_values, accuracies, 'd-', color='
-                  markerfacecolor='white', markeredgewidth=2, markeredgecolor='
+    ax2_twin.plot(alpha_values, accuracies, 'd-', color='#C73E1D', linewidth=2.5, markersize=8,
+                  markerfacecolor='white', markeredgewidth=2, markeredgecolor='#C73E1D',
                   label='Prediction Accuracy')
 
     for i, alpha in enumerate(alpha_values):
@@ -279,9 +266,9 @@ def generate_figure_7_alpha_tti(results):
                         fontsize=16, fontweight='bold')
     
     ax2.set_xlabel('alpha_tti (EWMA Adaptation Rate)', fontweight='bold', fontsize=16)
-    ax2.set_ylabel('Cache Hit Rate (%)', fontweight='bold', color='
-    ax2_twin.set_ylabel('Adaptation Speed & Prediction Accuracy', fontweight='bold', color='
-    ax2_twin.set_title('(b) Hit Rate & Adaptation Speed vs. alpha_tti (Context)', fontweight='bold', pad=15, fontsize=16)
+    ax2.set_ylabel('Cache Hit Rate (%)', fontweight='bold', color='#A23B72', fontsize=16)
+    ax2_twin.set_ylabel('Adaptation Speed & Prediction Accuracy', fontweight='bold', color='#F18F01', fontsize=16)
+    ax2.set_title('(b) Hit Rate & Adaptation Speed vs. alpha_tti (Context)', fontweight='bold', pad=15, fontsize=16)
     ax2.grid(True, alpha=0.3)
     ax2.set_xlim(-0.02, 0.92)
 
