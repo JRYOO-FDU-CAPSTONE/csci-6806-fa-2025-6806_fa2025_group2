@@ -90,7 +90,7 @@ def generate_figure_1_peak_dt(results):
     peak_dt_values = [results[scheme]['peak_dt'] for scheme in schemes]
     
     bars = ax.bar(schemes, peak_dt_values, 
-                  color=['
+                  color=['#1f77b4', '#ff7f0e', '#2ca02c'],
                   alpha=0.8, edgecolor='black', linewidth=0.8)
     
     for bar, value in zip(bars, peak_dt_values):
@@ -126,7 +126,7 @@ def generate_figure_2_median_dt(results):
     median_dt_values = [results[scheme]['median_dt'] for scheme in schemes]
 
     bars = ax.bar(schemes, median_dt_values,
-                  color=['
+                  color=['#1f77b4', '#ff7f0e', '#2ca02c'],
                   alpha=0.8, edgecolor='black', linewidth=0.8)
 
     for bar, value in zip(bars, median_dt_values):
@@ -163,7 +163,7 @@ def generate_figure_3_hit_rate(results):
     hit_rate_values = [results[scheme]['hit_rate'] for scheme in schemes]
 
     bars = ax.bar(schemes, hit_rate_values,
-                  color=['
+                  color=['#1f77b4', '#ff7f0e', '#2ca02c'],
                   alpha=0.8, edgecolor='black', linewidth=0.8)
 
     for bar, value in zip(bars, hit_rate_values):
@@ -200,7 +200,7 @@ def generate_combined_figure(results):
     
     peak_dt_values = [results[scheme]['peak_dt'] for scheme in schemes]
     bars1 = axes[0].bar(schemes, peak_dt_values,
-                       color=['
+                       color=['#1f77b4', '#ff7f0e', '#2ca02c'],
                        alpha=0.8, edgecolor='black', linewidth=0.8)
     
     for bar, value in zip(bars1, peak_dt_values):
@@ -217,7 +217,7 @@ def generate_combined_figure(results):
     
     median_dt_values = [results[scheme]['median_dt'] for scheme in schemes]
     bars2 = axes[1].bar(schemes, median_dt_values,
-                       color=['
+                       color=['#1f77b4', '#ff7f0e', '#2ca02c'],
                        alpha=0.8, edgecolor='black', linewidth=0.8)
     
     for bar, value in zip(bars2, median_dt_values):
@@ -234,7 +234,7 @@ def generate_combined_figure(results):
     
     hit_rate_values = [results[scheme]['hit_rate'] for scheme in schemes]
     bars3 = axes[2].bar(schemes, hit_rate_values,
-                       color=['
+                       color=['#1f77b4', '#ff7f0e', '#2ca02c'],
                        alpha=0.8, edgecolor='black', linewidth=0.8)
     
     for bar, value in zip(bars3, hit_rate_values):

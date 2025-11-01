@@ -1,19 +1,5 @@
 #!/usr/bin/env python3
 
-"""
-Assignment 4 Figure 4 Generation Script
-Generates Figure 4: Peak DT vs. Cache Size (comparing all schemes)
-
-This script creates Figure 4 which analyzes how Peak Disk-head Time varies
-with different cache sizes for all implemented eviction schemes (E0-E2).
-
-Requirements:
-- Compare LRU vs best scheme (or all schemes)
-- Show Peak DT sensitivity to cache size
-- Proper ACM sigconf formatting
-- Analysis section explaining results
-"""
-
 import json
 import lzma
 import os
@@ -142,9 +128,9 @@ def generate_figure_4_cache_size(results):
     fig, ax = plt.subplots(figsize=(10, 7))
 
     scheme_styles = {
-        'E0-LRU': {'color': '
-        'E1-DT-SLRU': {'color': '
-        'E2-EDE': {'color': '
+        'E0-LRU': {'color': '#1f77b4', 'marker': 'o', 'linestyle': '-'},
+        'E1-DT-SLRU': {'color': '#ff7f0e', 'marker': 's', 'linestyle': '--'},
+        'E2-EDE': {'color': '#2ca02c', 'marker': '^', 'linestyle': '-.'}
     }
     
     cache_sizes = sorted(results['E0-LRU'].keys())
