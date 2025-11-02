@@ -32,8 +32,7 @@ def main():
             
             config_mods = {
                 "output_dir": f"runs/a5/fig_1_tau_dt/e1_dtslru_tau_{tau}/run_{run_num}",
-                "tau_dt_threshold": tau,
-                "random_seed": 1000 + int(tau * 100) + run_num
+                "tau_dt_threshold": tau
             }
             
             create_config_file(exp_dir / "config.json", dtslru_base_config, config_mods)
@@ -51,8 +50,7 @@ def main():
             
             config_mods = {
                 "output_dir": f"runs/a5/fig_3_protected_cap/e2_ede_cap_{cap}/run_{run_num}",
-                "protected_cap": cap,
-                "random_seed": 2000 + int(cap * 100) + run_num
+                "protected_cap": cap
             }
             
             create_config_file(exp_dir / "config.json", ede_base_config, config_mods)
@@ -70,8 +68,7 @@ def main():
             
             config_mods = {
                 "output_dir": f"runs/a5/fig_4_alpha_tti/e2_ede_alpha_{alpha}/run_{run_num}",
-                "alpha_tti": alpha,
-                "random_seed": 3000 + int(alpha * 100) + run_num
+                "alpha_tti": alpha
             }
             
             create_config_file(exp_dir / "config.json", ede_base_config, config_mods)

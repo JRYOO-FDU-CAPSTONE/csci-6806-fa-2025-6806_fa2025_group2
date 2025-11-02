@@ -40,6 +40,5 @@
   "log_episodes": false,
   "eviction_policy": "EDE",
   "protected_cap": 0.7,
-  "alpha_tti": 0.1,
-  "random_seed": 2073
+  "alpha_tti": 0.1
 }
