@@ -49,7 +49,7 @@ def extract_protected_cap_metrics():
     
     if not results_file.exists():
         print(f"Error: Results file not found: {results_file}")
-        print("Please run: python assignment4/scripts/data_generation/generate_a4_results.py")
+        print("Please ensure simulation results are available.")
         return results
     
     try:
