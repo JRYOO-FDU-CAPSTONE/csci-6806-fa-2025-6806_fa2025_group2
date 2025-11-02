@@ -39,6 +39,5 @@
   "log_evictions": false,
   "log_episodes": false,
   "eviction_policy": "DTSLRU",
-  "tau_dt_threshold": 0.25,
-  "random_seed": 1026
+  "tau_dt_threshold": 0.25
 }

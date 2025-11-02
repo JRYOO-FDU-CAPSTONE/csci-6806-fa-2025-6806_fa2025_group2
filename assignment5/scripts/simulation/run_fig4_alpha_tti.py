@@ -146,8 +146,17 @@ def main():
             if result_dirs:
                 stats_file = result_dirs[0] / 'full_0_0.1_cache_perf.txt.lzma'
                 if stats_file.exists():
-                    print(f"  Results already exist, skipping simulation")
-                    needs_simulation = False
+                    with open(config_path, 'r') as f:
+                        config_data = json.load(f)
+                        config_alpha = config_data.get('alpha_tti')
+                        if config_alpha == alpha:
+                            print(f"  Results already exist with matching alpha_tti={alpha}, skipping simulation")
+                            needs_simulation = False
+                        else:
+                            print(f"  Warning: Existing results have alpha_tti={config_alpha}, but config expects {alpha}. Will re-run.")
+                            needs_simulation = True
+                    if not needs_simulation:
+                        pass
             
             if needs_simulation:
                 if run_simulation(config_path):

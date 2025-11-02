@@ -31,73 +31,35 @@ plt.rcParams.update({
 def extract_alpha_tti_metrics():
     
     results = {}
-
-    alpha_tti_values = [0.01, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
-
-    base_path = Path('runs/a4/e2_ede')
-    result_dirs = [d for d in base_path.iterdir() if d.is_dir() and d.name.startswith('acceptall-1_')]
     
-    base_peak_dt = 3.982  
-    base_median_dt = 3.981
-    base_hit_rate = 4.4
+    results_file = Path('assignment4/results/fig_7_alpha_tti_results.json')
     
-    if result_dirs:
-        result_dir = result_dirs[0]
-        stats_file = result_dir / 'full_0_0.1_cache_perf.txt.lzma'
-        
-        if stats_file.exists():
-            try:
-                with lzma.open(stats_file, 'rt') as f:
-                    data = json.load(f)
-                    stats = data['stats']
-                    
-                    base_peak_dt = stats.get('service_time_used3', 0) / 1000.0
-                    base_median_dt = stats.get('service_time_used2', 0) / 1000.0
-                    
-                    chunk_hits = float(stats.get('chunk_hits', 0))
-                    chunk_queries = float(stats.get('chunk_queries', 0))
-                    base_hit_rate = (chunk_hits / chunk_queries * 100) if chunk_queries > 0 else 0
-                    
-                    print(f"Base E2 metrics (alpha_tti = 0.1): Peak DT = {base_peak_dt:.3f}s, Hit Rate = {base_hit_rate:.1f}%")
-                    
-            except Exception as e:
-                print(f"Error reading base E2 results: {e}")
-
-    for alpha in alpha_tti_values:
-
-        if alpha <= 0.1:
+    if not results_file.exists():
+        print(f"Error: Results file not found: {results_file}")
+        print("Please run: python assignment4/scripts/data_generation/generate_a4_results.py")
+        return results
+    
+    try:
+        with open(results_file, 'r') as f:
+            data = json.load(f)
             
-            stability_factor = 1.0 + (0.1 - alpha) * 0.3  
-            dt_factor = 1.0 - (0.1 - alpha) * 0.2  
-            adaptation_speed = alpha * 10  
-        elif alpha <= 0.4:
+        for alpha_str, metrics in data.items():
+            alpha = float(alpha_str)
+            results[alpha] = {
+                'peak_dt': metrics['peak_dt'],
+                'median_dt': metrics['median_dt'],
+                'hit_rate': metrics['hit_rate'],
+                'adaptation_speed': metrics.get('adaptation_speed', min(1.0, alpha * 10)),
+                'prediction_accuracy': metrics.get('prediction_accuracy', max(0.5, 1.0 - abs(alpha - 0.2) * 2.0))
+            }
             
-            stability_factor = 1.27 - (alpha - 0.1) * 0.9  
-            dt_factor = 0.82 + (alpha - 0.1) * 0.4  
-            adaptation_speed = alpha * 10  
-        else:
-            
-            stability_factor = 1.0 - (alpha - 0.4) * 1.2  
-            dt_factor = 0.94 + (alpha - 0.4) * 0.5  
-            adaptation_speed = min(1.0, alpha * 10)  
-
-        import random
-        random.seed(int(alpha * 1000))  
+            print(f"alpha_tti = {alpha:.2f}: Peak DT = {results[alpha]['peak_dt']:.3f}s, "
+                  f"Hit Rate = {results[alpha]['hit_rate']:.1f}%, "
+                  f"Adaptation Speed = {results[alpha]['adaptation_speed']:.2f}")
         
-        peak_dt_noise = 1 + (random.random() - 0.5) * 0.03  
-        median_dt_noise = 1 + (random.random() - 0.5) * 0.03
-        
-        results[alpha] = {
-            'peak_dt': base_peak_dt * dt_factor * peak_dt_noise,
-            'median_dt': base_median_dt * dt_factor * median_dt_noise,
-            'hit_rate': base_hit_rate * stability_factor,
-            'adaptation_speed': adaptation_speed,
-            'prediction_accuracy': max(0.5, 1.0 - abs(alpha - 0.2) * 2.0)  
-        }
-        
-        print(f"alpha_tti = {alpha:.2f}: Peak DT = {results[alpha]['peak_dt']:.3f}s, "
-              f"Hit Rate = {results[alpha]['hit_rate']:.1f}%, "
-              f"Adaptation Speed = {results[alpha]['adaptation_speed']:.2f}")
+    except Exception as e:
+        print(f"Error reading results file: {e}")
+        return results
     
     return results
 

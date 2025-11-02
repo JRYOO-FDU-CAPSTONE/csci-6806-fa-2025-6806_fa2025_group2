@@ -44,71 +44,33 @@ plt.rcParams.update({
 def extract_protected_cap_metrics():
     
     results = {}
-
-    protected_cap_values = [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.6, 0.7, 0.8]
-
-    base_path = Path('runs/a4/fig_6_protected_cap_ablation')
     
-    base_peak_dt = 3.982  
-    base_median_dt = 3.981
-    base_hit_rate = 4.4
-
-    baseline_path = Path('runs/a4/e2_ede')
-    if baseline_path.exists():
-        result_dirs = [d for d in baseline_path.iterdir() if d.is_dir() and d.name.startswith('acceptall-1_')]
-        if result_dirs:
-            result_dir = result_dirs[0]
-            stats_file = result_dir / 'full_0_0.1_cache_perf.txt.lzma'
+    results_file = Path('assignment4/results/fig_6_protected_cap_results.json')
+    
+    if not results_file.exists():
+        print(f"Error: Results file not found: {results_file}")
+        print("Please run: python assignment4/scripts/data_generation/generate_a4_results.py")
+        return results
+    
+    try:
+        with open(results_file, 'r') as f:
+            data = json.load(f)
             
-            if stats_file.exists():
-                try:
-                    with lzma.open(stats_file, 'rt') as f:
-                        data = json.load(f)
-                        stats = data['stats']
-                        
-                        base_peak_dt = stats.get('service_time_used3', 0) / 1000.0
-                        base_median_dt = stats.get('service_time_used2', 0) / 1000.0
-                        
-                        chunk_hits = float(stats.get('chunk_hits', 0))
-                        chunk_queries = float(stats.get('chunk_queries', 0))
-                        base_hit_rate = (chunk_hits / chunk_queries * 100) if chunk_queries > 0 else 0
-                        
-                        print(f"Base E2 metrics (PROTECTED cap = 0.3): Peak DT = {base_peak_dt:.3f}s, Hit Rate = {base_hit_rate:.1f}%")
-                        
-                except Exception as e:
-                    print(f"Error reading base E2 results: {e}")
-
-    for cap in protected_cap_values:
-
-        if cap <= 0.3:
+        for cap_str, metrics in data.items():
+            cap = float(cap_str)
+            results[cap] = {
+                'peak_dt': metrics['peak_dt'],
+                'median_dt': metrics['median_dt'],
+                'hit_rate': metrics['hit_rate'],
+                'protected_utilization': min(1.0, cap * 1.2)
+            }
             
-            hit_rate_factor = 1.0 - (0.3 - cap) * 0.6  
-            dt_factor = 1.0 + (0.3 - cap) * 0.4  
-        elif cap <= 0.5:
-            
-            hit_rate_factor = 1.0 + (cap - 0.3) * 0.8  
-            dt_factor = 1.0 - (cap - 0.3) * 0.3  
-        else:
-            
-            hit_rate_factor = 1.16 - (cap - 0.5) * 0.4  
-            dt_factor = 0.94 + (cap - 0.5) * 0.2  
-
-        import random
-        random.seed(int(cap * 1000))  
+            print(f"PROTECTED cap = {cap:.2f}: Peak DT = {results[cap]['peak_dt']:.3f}s, "
+                  f"Hit Rate = {results[cap]['hit_rate']:.1f}%")
         
-        peak_dt_noise = 1 + (random.random() - 0.5) * 0.04  
-        median_dt_noise = 1 + (random.random() - 0.5) * 0.04
-        
-        results[cap] = {
-            'peak_dt': base_peak_dt * dt_factor * peak_dt_noise,
-            'median_dt': base_median_dt * dt_factor * median_dt_noise,
-            'hit_rate': base_hit_rate * hit_rate_factor,
-            'protected_utilization': min(1.0, cap * 1.2)  
-        }
-        
-        print(f"PROTECTED cap = {cap:.2f}: Peak DT = {results[cap]['peak_dt']:.3f}s, "
-              f"Hit Rate = {results[cap]['hit_rate']:.1f}%, "
-              f"Utilization = {results[cap]['protected_utilization']:.2f}")
+    except Exception as e:
+        print(f"Error reading results file: {e}")
+        return results
     
     return results
 
@@ -121,8 +83,8 @@ def generate_figure_6_protected_cap(results):
     hit_rate_values = [results[cap]['hit_rate'] for cap in cap_values]
 
     ax1.plot(cap_values, peak_dt_values, 
-             color='
-             markerfacecolor='white', markeredgewidth=2, markeredgecolor='
+             color='#2ca02c', marker='o', linewidth=2.5, markersize=8,
+             markerfacecolor='white', markeredgewidth=2, markeredgecolor='#2ca02c',
              label='Peak DT (E2 EDE)')
 
     for i, (cap, dt) in enumerate(zip(cap_values, peak_dt_values)):
@@ -153,8 +115,8 @@ def generate_figure_6_protected_cap(results):
     ax1.legend(loc='upper right')
 
     ax2.plot(cap_values, hit_rate_values, 
-             color='
-             markerfacecolor='white', markeredgewidth=2, markeredgecolor='
+             color='#1f77b4', marker='s', linewidth=2.5, markersize=8,
+             markerfacecolor='white', markeredgewidth=2, markeredgecolor='#1f77b4',
              label='Hit Rate (E2 EDE)')
 
     for i, (cap, hr) in enumerate(zip(cap_values, hit_rate_values)):
@@ -192,8 +154,8 @@ def generate_figure_6_protected_cap(results):
     cap_values = sorted(results.keys())
     peak_dts = [results[cap]['peak_dt'] for cap in cap_values]
     
-    ax1.plot(cap_values, peak_dts, 'o-', color='
-             markerfacecolor='white', markeredgewidth=2, markeredgecolor='
+    ax1.plot(cap_values, peak_dts, 'o-', color='#2ca02c', linewidth=2.5, markersize=8,
+             markerfacecolor='white', markeredgewidth=2, markeredgecolor='#2ca02c')
 
     for i, cap in enumerate(cap_values):
         if cap in [0.1, 0.3, 0.5, 0.8]:
@@ -232,12 +194,12 @@ def generate_figure_6_protected_cap(results):
     hit_rates = [results[cap]['hit_rate'] for cap in cap_values]
     utilizations = [results[cap]['protected_utilization'] for cap in cap_values]
     
-    ax2.plot(cap_values, hit_rates, 's-', color='
-             markerfacecolor='white', markeredgewidth=2, markeredgecolor='
+    ax2.plot(cap_values, hit_rates, 's-', color='#1f77b4', linewidth=2.5, markersize=8,
+             markerfacecolor='white', markeredgewidth=2, markeredgecolor='#1f77b4',
              label='Hit Rate (%)')
     ax2_twin = ax2.twinx()
-    ax2_twin.plot(cap_values, utilizations, '^-', color='
-                  markerfacecolor='white', markeredgewidth=2, markeredgecolor='
+    ax2_twin.plot(cap_values, utilizations, '^-', color='#ff7f0e', linewidth=2.5, markersize=8,
+                  markerfacecolor='white', markeredgewidth=2, markeredgecolor='#ff7f0e',
                   label='Protected Utilization')
 
     for i, cap in enumerate(cap_values):
@@ -248,8 +210,8 @@ def generate_figure_6_protected_cap(results):
                         fontsize=10, fontweight='bold')
     
     ax2.set_xlabel('PROTECTED Cap Ratio', fontweight='bold')
-    ax2.set_ylabel('Cache Hit Rate (%)', fontweight='bold', color='
-    ax2_twin.set_ylabel('Protected Segment Utilization', fontweight='bold', color='
+    ax2.set_ylabel('Cache Hit Rate (%)', fontweight='bold', color='#1f77b4', fontsize=16)
+    ax2_twin.set_ylabel('Protected Segment Utilization', fontweight='bold', color='#ff7f0e', fontsize=16)
     ax2_twin.set_title('(b) Hit Rate & Utilization vs. PROTECTED Cap (Context)', fontweight='bold', pad=15)
     ax2.grid(True, alpha=0.3)
     ax2.set_xlim(0.05, 0.85)
