@@ -101,7 +101,7 @@ def average_results_across_runs(run1_metrics, run2_metrics, run3_metrics):
 
 def main():
     base_dir = Path("runs/a5/fig_1_tau_dt")
-    tau_dt_values = [0.05, 0.1, 0.25, 0.5, 1.0, 1.5, 2.5]
+    tau_dt_values = [0.1, 0.25, 0.5, 1.0, 2.5, 5.0]
     
     results = {}
     output_file = Path("assignment5/results/fig_1_tau_dt_results.json")

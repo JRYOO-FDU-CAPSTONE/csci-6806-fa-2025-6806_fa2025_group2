@@ -22,7 +22,7 @@
   "prefetch_when": "never",
   "prefetch_range": "episode",
   "admit_only_prefetches": false,
-  "output_dir": "runs/a5/fig_1_tau_dt/e1_dtslru_tau_1.5/run_1",
+  "output_dir": "runs/a5/fig_1_tau_dt/e1_dtslru_tau_5.0/run_1",
   "override": false,
   "write_mbps": 0,
   "size_gb": 366.475,
@@ -39,5 +39,5 @@
   "log_evictions": false,
   "log_episodes": false,
   "eviction_policy": "DTSLRU",
-  "tau_dt_threshold": 1.5
+  "tau_dt_threshold": 5.0
 }

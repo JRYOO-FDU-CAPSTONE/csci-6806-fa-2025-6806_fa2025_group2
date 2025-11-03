@@ -102,10 +102,10 @@ def generate_figure_1_peak_dt(results):
     ax.tick_params(axis='x', labelsize=16)
     ax.tick_params(axis='y', labelsize=16)
     
-    baseline_tau = 0.5
+    baseline_tau = 1.0
     if baseline_tau in tau_values:
         ax.axvline(x=baseline_tau, color='red', linestyle='--', alpha=0.7, linewidth=1.5)
-        ax.text(baseline_tau, y_max * 1.015, 'Baseline (τ_DT = 0.5)', 
+        ax.text(baseline_tau, y_max * 1.015, 'Baseline (τ_DT = 1.0)', 
                 ha='center', va='bottom', fontsize=16, color='red', fontweight='bold')
     
     plt.tight_layout()
