@@ -89,7 +89,7 @@ def generate_figure_3_peak_dt(results):
             
             ax.annotate(f'{dt:.2f}s', (cap, dt), 
                         xytext=(0, offset_y), textcoords='offset points',
-                        fontsize=14, ha='center', fontweight='bold')
+                        fontsize=16, ha='center', fontweight='bold')
     
     ax.set_xlabel('PROTECTED Cap', fontweight='bold', fontsize=16)
     ax.set_ylabel('Peak Disk-head Time (seconds)', fontweight='bold', fontsize=16, labelpad=10)
