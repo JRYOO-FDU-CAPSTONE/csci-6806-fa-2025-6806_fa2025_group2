@@ -85,7 +85,7 @@ def generate_figure_2_hit_rate(results):
             
             ax.annotate(f'{hr:.1f}%', (tau, hr), 
                         xytext=(0, offset_y), textcoords='offset points',
-                        fontsize=14, ha='center', fontweight='bold')
+                        fontsize=16, ha='center', fontweight='bold')
     
     ax.set_xlabel('τ_DT Promotion Threshold', fontweight='bold', fontsize=16)
     ax.set_ylabel('Cache Hit Rate (%)', fontweight='bold', fontsize=16, labelpad=10)
@@ -102,10 +102,14 @@ def generate_figure_2_hit_rate(results):
     ax.tick_params(axis='x', labelsize=16)
     ax.tick_params(axis='y', labelsize=16)
     
+    # Set x-axis ticks to exactly match tau_DT values
+    ax.set_xticks(tau_values)
+    ax.set_xticklabels([f'{tau:.2f}' for tau in tau_values], rotation=45, ha='right')
+    
     baseline_tau = 1.0
     if baseline_tau in tau_values:
         ax.axvline(x=baseline_tau, color='red', linestyle='--', alpha=0.7, linewidth=1.5)
-        ax.text(baseline_tau, y_max * 1.02, 'Baseline (τ_DT = 0.5)', 
+        ax.text(baseline_tau, y_max * 1.02, 'Baseline (τ_DT = 1.0)', 
                 ha='center', va='bottom', fontsize=16, color='red', fontweight='bold')
     
     plt.tight_layout()

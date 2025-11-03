@@ -85,7 +85,7 @@ def generate_figure_1_peak_dt(results):
             
             ax.annotate(f'{dt:.2f}s', (tau, dt), 
                         xytext=(0, offset_y), textcoords='offset points',
-                        fontsize=14, ha='center', fontweight='bold')
+                        fontsize=16, ha='center', fontweight='bold')
     
     ax.set_xlabel('τ_DT Promotion Threshold', fontweight='bold', fontsize=16)
     ax.set_ylabel('Peak Disk-head Time (seconds)', fontweight='bold', fontsize=16, labelpad=10)
@@ -101,6 +101,10 @@ def generate_figure_1_peak_dt(results):
     
     ax.tick_params(axis='x', labelsize=16)
     ax.tick_params(axis='y', labelsize=16)
+    
+    # Set x-axis ticks to exactly match tau_DT values
+    ax.set_xticks(tau_values)
+    ax.set_xticklabels([f'{tau:.2f}' for tau in tau_values], rotation=45, ha='right')
     
     baseline_tau = 1.0
     if baseline_tau in tau_values:
