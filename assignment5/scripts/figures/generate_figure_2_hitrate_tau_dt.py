@@ -102,7 +102,7 @@ def generate_figure_2_hit_rate(results):
     ax.tick_params(axis='x', labelsize=16)
     ax.tick_params(axis='y', labelsize=16)
     
-    baseline_tau = 0.5
+    baseline_tau = 1.0
     if baseline_tau in tau_values:
         ax.axvline(x=baseline_tau, color='red', linestyle='--', alpha=0.7, linewidth=1.5)
         ax.text(baseline_tau, y_max * 1.02, 'Baseline (τ_DT = 0.5)', 

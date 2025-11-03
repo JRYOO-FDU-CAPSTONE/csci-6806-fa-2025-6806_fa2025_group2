@@ -23,7 +23,7 @@ def main():
     fig1_dir = base_dir / "fig_1_tau_dt"
     fig1_dir.mkdir(parents=True, exist_ok=True)
     
-    tau_dt_values = [0.05, 0.1, 0.25, 0.5, 1.0, 1.5, 2.5]
+    tau_dt_values = [0.1, 0.25, 0.5, 1.0, 2.5, 5.0]
     
     for tau in tau_dt_values:
         for run_num in [1, 2, 3]:
