@@ -70,7 +70,7 @@ def generate_figure_2_hit_rate(results):
              label='Hit Rate (E1 DT-SLRU)')
     
     seen_values = set()
-    annotation_offset = 12
+    annotation_offset = 10  # Match Assignment 4 offset
     
     for i, (tau, hr) in enumerate(zip(tau_values, hit_rate_values)):
         hr_rounded = round(hr, 1)
@@ -78,10 +78,11 @@ def generate_figure_2_hit_rate(results):
             seen_values.add(hr_rounded)
             offset_y = annotation_offset
             
-            if i > 0 and abs(hit_rate_values[i-1] - hr) < 0.01:
-                offset_y = -annotation_offset
-            elif i < len(tau_values) - 1 and abs(hit_rate_values[i+1] - hr) < 0.01:
-                offset_y = -annotation_offset
+            # Check for nearby points to avoid overlaps
+            if i > 0 and abs(hit_rate_values[i-1] - hr) < 0.5:
+                offset_y = -annotation_offset - 5
+            elif i < len(tau_values) - 1 and abs(hit_rate_values[i+1] - hr) < 0.5:
+                offset_y = -annotation_offset - 5
             
             ax.annotate(f'{hr:.1f}%', (tau, hr), 
                         xytext=(0, offset_y), textcoords='offset points',
@@ -89,11 +90,13 @@ def generate_figure_2_hit_rate(results):
     
     ax.set_xlabel('τ_DT Promotion Threshold', fontweight='bold', fontsize=16)
     ax.set_ylabel('Cache Hit Rate (%)', fontweight='bold', fontsize=16, labelpad=10)
-    ax.set_title('Figure 2: Hit Rate vs. τ_DT (E1 DT-SLRU)', fontweight='bold', pad=15, fontsize=16)
     
     ax.set_xlim(min(tau_values) - 0.05, max(tau_values) + 0.05)
     y_min, y_max = min(hit_rate_values), max(hit_rate_values)
     ax.set_ylim(y_min * 0.95, y_max * 1.05)
+    
+    # Set title after y-axis limits to prevent overlap
+    ax.set_title('Figure 2: Hit Rate vs. τ_DT (E1 DT-SLRU)', fontweight='bold', pad=20, fontsize=16)
     
     ax.grid(True, alpha=0.3)
     ax.spines['top'].set_visible(False)
@@ -109,10 +112,14 @@ def generate_figure_2_hit_rate(results):
     baseline_tau = 1.0
     if baseline_tau in tau_values:
         ax.axvline(x=baseline_tau, color='red', linestyle='--', alpha=0.7, linewidth=1.5)
-        ax.text(baseline_tau, y_max * 1.02, 'Baseline (τ_DT = 1.0)', 
-                ha='center', va='bottom', fontsize=16, color='red', fontweight='bold')
+        # Position annotation within plot bounds, near top but below title
+        ax.text(baseline_tau, y_max * 1.05, 'Baseline (τ_DT = 1.0)', 
+                ha='center', va='bottom', fontsize=16, color='red', fontweight='bold',
+                bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.8, edgecolor='none'))
     
-    plt.tight_layout()
+    # Adjust layout to prevent label overlaps - leave more room at top
+    plt.tight_layout(rect=[0, 0, 1, 0.96])
+    plt.subplots_adjust(top=0.92)
     
     script_dir = Path(__file__).parent
     project_root = script_dir.parent.parent.parent
