@@ -25,6 +25,46 @@ plt.rcParams.update({
     'savefig.pad_inches': 0.1
 })
 
+def get_global_peak_dt_range():
+    """Calculate global y-axis range for Peak DT across all ablation studies"""
+    script_dir = Path(__file__).parent
+    project_root = script_dir.parent.parent.parent
+    
+    all_peak_dt = []
+    
+    # Load Figure 1 results
+    fig1_file = project_root / 'assignment5' / 'results' / 'fig_1_tau_dt_results.json'
+    if fig1_file.exists():
+        with open(fig1_file, 'r') as f:
+            data = json.load(f)
+            all_peak_dt.extend([v['peak_dt'] for v in data.values()])
+    
+    # Load Figure 3 results
+    fig3_file = project_root / 'assignment5' / 'results' / 'fig_3_protected_cap_results.json'
+    if fig3_file.exists():
+        with open(fig3_file, 'r') as f:
+            data = json.load(f)
+            all_peak_dt.extend([v['peak_dt'] for v in data.values()])
+    
+    # Load Figure 4 results
+    fig4_file = project_root / 'assignment5' / 'results' / 'fig_4_alpha_tti_results.json'
+    if fig4_file.exists():
+        with open(fig4_file, 'r') as f:
+            data = json.load(f)
+            all_peak_dt.extend([v['peak_dt'] for v in data.values()])
+    
+    if not all_peak_dt:
+        return None, None
+    
+    global_min = min(all_peak_dt)
+    global_max = max(all_peak_dt)
+    
+    # Add 3% margin for better readability
+    y_min = global_min * 0.97
+    y_max = global_max * 1.03
+    
+    return y_min, y_max
+
 def extract_tau_dt_metrics():
     results = {}
     
@@ -70,7 +110,7 @@ def generate_figure_1_peak_dt(results):
              label='Peak DT (E1 DT-SLRU)')
     
     seen_values = set()
-    annotation_offset = 12
+    annotation_offset = 10  # Match Assignment 4 offset
     
     for i, (tau, dt) in enumerate(zip(tau_values, peak_dt_values)):
         dt_rounded = round(dt, 2)
@@ -78,10 +118,11 @@ def generate_figure_1_peak_dt(results):
             seen_values.add(dt_rounded)
             offset_y = annotation_offset
             
-            if i > 0 and abs(peak_dt_values[i-1] - dt) < 0.001:
-                offset_y = -annotation_offset
-            elif i < len(tau_values) - 1 and abs(peak_dt_values[i+1] - dt) < 0.001:
-                offset_y = -annotation_offset
+            # Check for nearby points to avoid overlaps
+            if i > 0 and abs(peak_dt_values[i-1] - dt) < 0.05:
+                offset_y = -annotation_offset - 5
+            elif i < len(tau_values) - 1 and abs(peak_dt_values[i+1] - dt) < 0.05:
+                offset_y = -annotation_offset - 5
             
             ax.annotate(f'{dt:.2f}s', (tau, dt), 
                         xytext=(0, offset_y), textcoords='offset points',
@@ -89,11 +130,19 @@ def generate_figure_1_peak_dt(results):
     
     ax.set_xlabel('τ_DT Promotion Threshold', fontweight='bold', fontsize=16)
     ax.set_ylabel('Peak Disk-head Time (seconds)', fontweight='bold', fontsize=16, labelpad=10)
-    ax.set_title('Figure 1: Peak DT vs. τ_DT (E1 DT-SLRU)', fontweight='bold', pad=15, fontsize=16)
     
     ax.set_xlim(min(tau_values) - 0.05, max(tau_values) + 0.05)
-    y_min, y_max = min(peak_dt_values), max(peak_dt_values)
-    ax.set_ylim(y_min * 0.98, y_max * 1.02)
+    # Use global y-axis range for consistency across figures 1, 3, and 4
+    y_min_global, y_max_global = get_global_peak_dt_range()
+    if y_min_global is None or y_max_global is None:
+        # Fallback to local range if global calculation fails
+        y_min, y_max = min(peak_dt_values), max(peak_dt_values)
+        y_min_global = y_min * 0.98
+        y_max_global = y_max * 1.02
+    ax.set_ylim(y_min_global, y_max_global)
+    
+    # Set title after y-axis limits to prevent overlap
+    ax.set_title('Figure 1: Peak DT vs. τ_DT (E1 DT-SLRU)', fontweight='bold', pad=20, fontsize=16)
     
     ax.grid(True, alpha=0.3)
     ax.spines['top'].set_visible(False)
@@ -109,10 +158,15 @@ def generate_figure_1_peak_dt(results):
     baseline_tau = 1.0
     if baseline_tau in tau_values:
         ax.axvline(x=baseline_tau, color='red', linestyle='--', alpha=0.7, linewidth=1.5)
-        ax.text(baseline_tau, y_max * 1.015, 'Baseline (τ_DT = 1.0)', 
-                ha='center', va='bottom', fontsize=16, color='red', fontweight='bold')
+        # Position annotation within plot bounds, near top but below title
+        # Use transform to position relative to axes (0-1), then convert to data coordinates
+        ax.text(baseline_tau, y_max_global, 'Baseline (τ_DT = 1.0)', 
+                ha='center', va='bottom', fontsize=16, color='red', fontweight='bold',
+                bbox=dict(boxstyle='round,pad=0.3', facecolor='white', alpha=0.8, edgecolor='none'))
     
-    plt.tight_layout()
+    # Adjust layout to prevent label overlaps - leave more room at top
+    plt.tight_layout(rect=[0, 0, 1, 0.96])
+    plt.subplots_adjust(top=0.92)
     
     script_dir = Path(__file__).parent
     project_root = script_dir.parent.parent.parent
