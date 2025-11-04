@@ -110,7 +110,7 @@ def generate_figure_4_peak_dt(results):
     min_dt_idx = peak_dt_values.index(min(peak_dt_values))
     optimal_alpha = alpha_values[min_dt_idx]
     ax.axvline(x=optimal_alpha, color='red', linestyle='--', alpha=0.7, linewidth=1.5)
-    ax.text(optimal_alpha, y_max * 1.015, f'Optimal (α = {optimal_alpha:.1f})', 
+    ax.text(optimal_alpha, y_max * 1.015, f'Optimal (α_TTI = {optimal_alpha:.1f})', 
             ha='center', va='bottom', fontsize=16, color='red', fontweight='bold')
     
     plt.tight_layout()
