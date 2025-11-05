@@ -146,8 +146,8 @@ def generate_figure_5_combined(normalized_dt, normalized_params):
     ax.axhline(y=1.0, color='black', linestyle='--', linewidth=2, alpha=0.5, label='Baseline')
     
     # Formatting
-    ax.set_xlabel('Normalized Parameter Value (0 = min, 1 = max)', fontweight='bold', fontsize=16)
-    ax.set_ylabel('Normalized Peak DT', fontweight='bold', fontsize=16, labelpad=10)
+    ax.set_xlabel('Normalized Parameter Value (0 = min, 1 = max)', fontweight='bold', fontsize=18)
+    ax.set_ylabel('Normalized Peak DT', fontweight='bold', fontsize=18, labelpad=10)
     
     # Set y-axis limits first
     all_normalized = []
@@ -160,17 +160,17 @@ def generate_figure_5_combined(normalized_dt, normalized_params):
     
     # Set title after limits to prevent overlap
     ax.set_title('Figure 5: Combined Sensitivity Summary: Normalized Peak DT for All Ablated Parameters',
-                 fontweight='bold', pad=20, fontsize=16)
+                 fontweight='bold', pad=20, fontsize=18)
     
     ax.grid(True, alpha=0.3)
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     
-    ax.tick_params(axis='x', labelsize=16)  # Match Assignment 4
-    ax.tick_params(axis='y', labelsize=16)  # Match Assignment 4
+    ax.tick_params(axis='x', labelsize=18)  # Increased font size
+    ax.tick_params(axis='y', labelsize=18)  # Increased font size
     
-    # Legend - match Assignment 4 font size, position to avoid overlaps
-    ax.legend(loc='best', frameon=True, fancybox=True, shadow=True, fontsize=12)
+    # Legend - increased font size for better readability
+    ax.legend(loc='best', frameon=True, fancybox=True, shadow=True, fontsize=16)
     
     # Adjust layout to prevent label overlaps
     plt.tight_layout(rect=[0, 0, 1, 0.96])
