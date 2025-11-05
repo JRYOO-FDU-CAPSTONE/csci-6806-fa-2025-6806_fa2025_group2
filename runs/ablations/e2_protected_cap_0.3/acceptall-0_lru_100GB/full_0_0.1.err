@@ -1,0 +1,107 @@
+[0] TimeLeft | [1] I   | [2] TraceTime | [3] Hrs$ | [4] %GETs | [5] GETs$ | [6] PUTs$ | [7] STGet%$ | [8] PeakST%$ | [9] STGetNoCa%$ | [10] STPut%$ | [11] ReqMBs$ | [12] GetMBs$ | [13] PutMBs$ | [14] FlaMBs$ | [15] PreMBs$ | [16] STSaved%$ | [17] Accept%$ | [18] STLate%$ | [19] Wasted%$ | [20] EA$     | [21] AvgIAMax | [22] RAMGb | [23] EstTotalTime | [24] Speedup$ | [25] GET/Ts$ | [26] GET/s$ | [27] WarningRootEpNotfound | [28] WarningPutStartsAfterZero | [29] Flashcache/warningAdmittedEpsUnknown | [30] Flashcache/warningEvictedEpisodenotfound
+2025-11-04 23:20:32> [0] 1.2m     | [1] 1   | [2] 1h        | [3] 1.0  | [4] 1.1   | [5] 1350  | [6] 95    | [7] 16.30   | [8] 0.00     | [9] 28.94       | [10] 4.34    | [11] 873.26  | [12] 548.81  | [13] 180.01  | [14] 548.25  | [15] 0.00    | [16] 43.7%     | [17] 100.00%  | [18] 36.8%    | [19] 84.1%    | [20] (64,3m) | [21] (3,8s)   | [22] 0.2   | [23] 1.2m         | [24] 4.68     | [25] 0.4     | [26] 1753.8 | [27] 1350 | [28] 95 | [29] 15798 | [30] 14980
+2025-11-04 23:20:32> [0] 1.6m     | [1] 26  | [2] 1d2h      | [3] 25.0 | [4] 16.4  | [5] 19565 | [6] 3194  | [7] 15.10   | [8] 22.48    | [9] 21.04       | [10] 5.29    | [11] 725.47  | [12] 535.80  | [13] 213.73  | [14] 535.15  | [15] 0.00    | [16] 28.2%     | [17] 100.00%  | [18] 49.4%    | [19] 89.8%    | [20] (42,3m) | [21] (2,8s)   | [22] 0.2   | [23] 1.9m         | [24] 5.11     | [25] 0.2     | [26] 1110.5 | [27] 20915 | [28] 3289 | [29] 401158 | [30] 400340
+2025-11-04 23:20:50> [0] 1.3m     | [1] 51  | [2] 2d3h      | [3] 25.0 | [4] 29.8  | [5] 16976 | [6] 3576  | [7] 12.93   | [8] 22.48    | [9] 15.95       | [10] 5.77    | [11] 511.08  | [12] 439.20  | [13] 231.92  | [14] 438.97  | [15] 0.00    | [16] 18.9%     | [17] 100.00%  | [18] 53.4%    | [19] 92.7%    | [20] (47,4m) | [21] (2,6s)   | [22] 0.2   | [23] 1.8m         | [24] 6.19     | [25] 0.2     | [26] 1168.1 | [27] 37891 | [28] 6865 | [29] 717181 | [30] 716363
+2025-11-04 23:21:04> [0] 1.1m     | [1] 76  | [2] 3d4h      | [3] 25.0 | [4] 42.4  | [5] 16121 | [6] 3159  | [7] 13.46   | [8] 22.48    | [9] 16.08       | [10] 4.94    | [11] 533.33  | [12] 468.28  | [13] 196.64  | [14] 467.83  | [15] 0.00    | [16] 16.3%     | [17] 100.00%  | [18] 56.5%    | [19] 92.4%    | [20] (42,3m) | [21] (2,6s)   | [22] 0.2   | [23] 1.9m         | [24] 6.02     | [25] 0.2     | [26] 1078.9 | [27] 54012 | [28] 10024 | [29] 1054023 | [30] 1053205
+2025-11-04 23:21:19> [0] 0.78m    | [1] 101 | [2] 4d5h      | [3] 25.0 | [4] 59.0  | [5] 21077 | [6] 3459  | [7] 17.37   | [8] 24.24    | [9] 20.92       | [10] 5.18    | [11] 692.04  | [12] 613.59  | [13] 203.67  | [14] 613.42  | [15] 0.00    | [16] 17.0%     | [17] 100.00%  | [18] 56.9%    | [19] 92.7%    | [20] (42,3m) | [21] (1,6s)   | [22] 0.2   | [23] 1.9m         | [24] 4.76     | [25] 0.2     | [26] 1114.4 | [27] 75089 | [28] 13483 | [29] 1495670 | [30] 1494852
+2025-11-04 23:21:38> [0] 0.57m    | [1] 126 | [2] 5d6h      | [3] 25.0 | [4] 73.1  | [5] 17992 | [6] 2864  | [7] 16.91   | [8] 24.24    | [9] 19.36       | [10] 4.53    | [11] 668.09  | [12] 607.67  | [13] 181.00  | [14] 607.62  | [15] 0.00    | [16] 12.7%     | [17] 100.00%  | [18] 61.0%    | [19] 93.8%    | [20] (36,3m) | [21] (1,5s)   | [22] 0.2   | [23] 2m           | [24] 4.97     | [25] 0.2     | [26] 993.5  | [27] 93081 | [28] 16347 | [29] 1933190 | [30] 1932372
+2025-11-04 23:21:56> [0] 0.2m     | [1] 151 | [2] 6d7h      | [3] 25.0 | [4] 90.0  | [5] 21518 | [6] 2564  | [7] 17.53   | [8] 24.24    | [9] 21.06       | [10] 4.17    | [11] 690.82  | [12] 618.23  | [13] 167.64  | [14] 618.04  | [15] 0.00    | [16] 16.8%     | [17] 100.00%  | [18] 57.0%    | [19] 94.1%    | [20] (41,3m) | [21] (1,5s)   | [22] 0.2   | [23] 1.9m         | [24] 4.53     | [25] 0.2     | [26] 1083.1 | [27] 114599 | [28] 18911 | [29] 2378140 | [30] 2377322
+2025-11-04 23:22:16> [0]          | [1] 168 | [2] 6d24h     | [3] 17.0 | [4] 100.0 | [5] 12706 | [6] 1578  | [7] 15.57   | [8] 24.24    | [9] 19.43       | [10] 3.84    | [11] 658.11  | [12] 575.71  | [13] 155.25  | [14] 575.09  | [15] 0.00    | [16] 19.9%     | [17] 100.00%  | [18] 57.5%    | [19] 93.7%    | [20] (37,3m) | [21] (1,5s)   | [22] 0.2   | [23] 1.9m         | [24] 5.07     | [25] 0.2     | [26] 1055.5 | [27] 127305 | [28] 20489 | [29] 2658972 | [30] 2658154
+2025-11-04 23:22:28> Results preview: 
+2025-11-04 23:22:28>  Trace: {'region': '201910', 'sample_ratio': 0.1, 'start': 0.0, 'only_gets': False} 
+2025-11-04 23:22:28>  AP: acceptall, AcceptAll() 
+2025-11-04 23:22:28>  Eviction Policy: LRU-custom, <BCacheSim.cachesim.eviction_policies.QueueCache object at 0x14bf02a10> 
+2025-11-04 23:22:28>  Average TTL: 0.00 s 
+2025-11-04 23:22:28>  Duration so far: 6 days 23 hrs 57 mins 22 secs 
+2025-11-04 23:22:28>  Duration: 6 days 23 hrs 57 mins 22 secs (1 hr intervals) 
+2025-11-04 23:22:28>  Service Time Utilization (%)                         - 20.41851 
+2025-11-04 23:22:28>  Service Time Utilization (%) [GET]                   - 15.55672 
+2025-11-04 23:22:28>  Service Time Utilization (%) [PUT]                   - 4.86179 
+2025-11-04 23:22:28>  Peak Service Time Utilization (%)                    - 32.05514 
+2025-11-04 23:22:28>  Peak Service Time Utilization (%) [PUT]              - 9.23056 
+2025-11-04 23:22:28>  Peak Service Time Utilization (%) [GET]              - 24.26700 
+2025-11-04 23:22:28>  P99 Service Time Utilization (%)                     - 30.14564 
+2025-11-04 23:22:28>  P99.9 Service Time Utilization (%)                   - 31.83116 
+2025-11-04 23:22:28>  P99.99 Service Time Utilization (%)                  - 32.03274 
+2025-11-04 23:22:28>  P99 Service Time Utilization (%) [GET]               - 22.16594 
+2025-11-04 23:22:28>  P99.9 Service Time Utilization (%) [GET]             - 23.96284 
+2025-11-04 23:22:28>  P99.99 Service Time Utilization (%) [GET]            - 24.23658 
+2025-11-04 23:22:28>  P99 Service Time Utilization (%) [GET-NoCache]       - 38.14315 
+2025-11-04 23:22:28>  P99.9 Service Time Utilization (%) [GET-NoCache]     - 46.38585 
+2025-11-04 23:22:28>  P99.99 Service Time Utilization (%) [GET-NoCache]    - 47.60592 
+2025-11-04 23:22:28>  P99 Service Time Utilization (%) [PUT]               - 9.03282 
+2025-11-04 23:22:28>  P99.9 Service Time Utilization (%) [PUT]             - 9.21933 
+2025-11-04 23:22:28>  P99.99 Service Time Utilization (%) [PUT]            - 9.22944 
+2025-11-04 23:22:28>  P99 Service Time Saved ratio 1                       - 0.41888 
+2025-11-04 23:22:28>  P99.9 Service Time Saved ratio 1                     - 0.48340 
+2025-11-04 23:22:28>  P99.99 Service Time Saved ratio 1                    - 0.49089 
+2025-11-04 23:22:28>  Peak Service Time Saved ratio 1 (range)              - 0.49170 
+2025-11-04 23:22:28>  Peak Service Time Saved ratio 2 (1st M to end)       - 0.48930 
+2025-11-04 23:22:28>  Service Time Saved ratio 1 (range)                   - 0.18827 
+2025-11-04 23:22:28>  Service Time Saved ratio 2 (first miss to end)       - 0.18488 
+2025-11-04 23:22:28>  Service Time Saved ratio 3 (start to end)            - 0.18129 
+2025-11-04 23:22:28>  Service Time Saved ratio                             - 0.18129 
+2025-11-04 23:22:28>  Bonus STS beyond STS(A) (Assumed EA too short)       - 0.00000 
+2025-11-04 23:22:28>  Est Service Time Lost from late/readmits             - 0.55716 
+2025-11-04 23:22:28>  ST + late/readmits potential                         - 0.74543 
+2025-11-04 23:22:28>  Potential STS(Analysis) from Admitted Episodes       - 0.00000 
+2025-11-04 23:22:28>  Service Time Saved (Analysis @ -1.0MB/s, -1.0GB)     - -1.00000 
+2025-11-04 23:22:28>  Service Time Saved (Analysis @ -1.0MB/s)             - -1.00000 
+2025-11-04 23:22:28>  Potential ST Saved (PF) (Analysis) from Admitted Eps - 0.00 
+2025-11-04 23:22:28>  Wasted hits from late/readmits: 0 IOs, 2658972 chunks 
+2025-11-04 23:22:28>  IOPS saved ratio                                     - 0.27555 
+2025-11-04 23:22:28>  IOPS saved ratio (Flash)                             - 0.2756 
+2025-11-04 23:22:28>  IOPS saved ratio (AdmitBuffer)                       - 0.0000 
+2025-11-04 23:22:28>  IOPS saved ratio (Partial)                           - 0.14649 
+2025-11-04 23:22:28>  IOPS saved ratio lost from late/readmits             - 0.00000 
+2025-11-04 23:22:28>  IOPS SR (Analysis) from Admitted Episodes            - 0.00000 
+2025-11-04 23:22:28>  IOPS SR (Analysis, ConstantThisEA)                   - -1.00000 
+2025-11-04 23:22:28>  GETs                                                 - 127305 / 127305 
+2025-11-04 23:22:28>      Saved                                            - 35079 
+2025-11-04 23:22:28>      Misses                                           - 92226 
+2025-11-04 23:22:28>      iops_requests/op/GET_TEMP                        - 31263 
+2025-11-04 23:22:28>      iops_requests/op/GET_PERM                        - 95897 
+2025-11-04 23:22:28>      iops_requests/op/GET_NOT_INIT                    - 145 
+2025-11-04 23:22:28>  GET (No Cache) ST                                    - 19.2% 
+2025-11-04 23:22:28>      service_time_nocache/op/GET_TEMP                 - 2.8% 
+2025-11-04 23:22:28>      service_time_nocache/op/GET_PERM                 - 16.4% 
+2025-11-04 23:22:28>      service_time_nocache/op/GET_NOT_INIT             - 0.0% 
+2025-11-04 23:22:28>  PUTs                                                 - 20489 
+2025-11-04 23:22:28>      puts_ios/op/PUT_TEMP                             - 8585 
+2025-11-04 23:22:28>      puts_ios/op/PUT_PERM                             - 11904 
+2025-11-04 23:22:28>  PUT ST                                               - 4.9% 
+2025-11-04 23:22:28>      service_time_writes/op/PUT_TEMP                  - 2.6% 
+2025-11-04 23:22:28>      service_time_writes/op/PUT_PERM                  - 2.3% 
+2025-11-04 23:22:28>  Episodes admitted                                    - 58069 (Analysis: -1) 
+2025-11-04 23:22:28>  Chunk hit ratio                                      - 0.14159 
+2025-11-04 23:22:28>  Chunk hit ratio (Flash)                              - 0.14159 
+2025-11-04 23:22:28>  Flash Cache Hit Rate                                 - 0.14159 
+2025-11-04 23:22:28>  Client Bandwidth [GET]                               - 640.37 MB/s 
+2025-11-04 23:22:28>  Backend Bandwidth [GET+PUT]                          - 744.58 MB/s 
+2025-11-04 23:22:28>  Backend Bandwidth [GET]                              - 550.02 MB/s 
+2025-11-04 23:22:28>  Backend Bandwidth [PUT]                              - 194.56 MB/s 
+2025-11-04 23:22:28>  Chunks Queried                                       - 3097546 
+2025-11-04 23:22:28>  Chunks Saved                                         - 403664 
+2025-11-04 23:22:28>  Chunks Fetched from Backend                          - 2660543 
+2025-11-04 23:22:28>  Flash writes                                         - 2658972 
+2025-11-04 23:22:28>  Acceptance Ratio                                     - 1.00000 
+2025-11-04 23:22:28>  Flash write rate                                     - 549.70 MB/s 
+2025-11-04 23:22:28>  Writing Chunks from Admitted Episodes                - 0.0 MB/s (WR Ratio: 0.00) 
+2025-11-04 23:22:28>  Analysis Closest Write Rate                          - -1.00 
+2025-11-04 23:22:28>  Flash Wasted % of WR                                 - 0.93 
+2025-11-04 23:22:28>  Flash Wasted (by admit)                              -  
+2025-11-04 23:22:28>  Flash Wasted (by evict)                              -  
+2025-11-04 23:22:28>  Cache Size                                           - -1.00 GB (Analysis) vs 100.00 (Sim, 819 items) 
+2025-11-04 23:22:28>  Flash Avg Eviction Age                               - (41.1,2.9m)
+2025-11-04 23:22:28>  Assumed Flash EA 
+2025-11-04 23:22:28>      Too Short/Bonus Hits                             - 0 (STSR: 0.00) 
+2025-11-04 23:22:28>      Too Long/Extra Writes                            - 0 (WRR: 0.00) 
+2025-11-04 23:22:28>  Flash Mean Time in System                            - (45.4,3.1m) 
+2025-11-04 23:22:28>  Analysis Mean Time in System                         - -1 
+2025-11-04 23:22:28>  Time to warmup                                       - 79, 1 min 35 secs 
+2025-11-04 23:22:28>  Simulator RAM usage                                  - 0.2 GB 
+2025-11-04 23:22:28>  Simulator Time                                       - 1 min 57 secs 
+2025-11-04 23:22:28>  
+2025-11-04 23:22:28> Results written to runs/ablations/e2_protected_cap_0.3/acceptall-0_lru_100GB/full_0_0.1_cache_perf.txt.stats.lzma
+2025-11-04 23:22:28> Results written to runs/ablations/e2_protected_cap_0.3/acceptall-0_lru_100GB/full_0_0.1_cache_perf.txt.lzma
+2025-11-04 23:22:28> 
