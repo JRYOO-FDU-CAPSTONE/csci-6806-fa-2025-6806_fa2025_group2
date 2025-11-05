@@ -1,0 +1,16 @@
+{
+  "policy": "PolicyDTSLRU",
+  "policy_module": "BCacheSim.cachesim.policies_a4",
+  "policy_kwargs": {"tau_dt": 1.0},
+  "admission": "AdmitAll",
+  "ap": "acceptall",
+  "prefetch": "Disabled",
+  "prefetch_when": "never",
+  "trace": "data/tectonic/201910/201910_Region1_0_0.1.trace",
+  "output_dir": "runs/e1_dtslru",
+  "size_gb": 100,
+  "sample_ratio": 0.1,
+  "seek_time_ms": 5.0,
+  "bandwidth_mbps": 100,
+  "stats_start": 0
+}
