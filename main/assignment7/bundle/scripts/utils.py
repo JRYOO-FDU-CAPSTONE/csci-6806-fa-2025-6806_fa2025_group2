@@ -20,7 +20,8 @@ __all__ = [
 ]
 
 # Cache the resolved root so repeated calls are inexpensive.
-_PROJECT_ROOT = Path(__file__).resolve().parents[3]
+# From main/assignment7/bundle/scripts/utils.py: parents[4] = project root
+_PROJECT_ROOT = Path(__file__).resolve().parents[4]
 
 
 def get_project_root() -> Path:
@@ -99,4 +100,6 @@ def run_python_script(
         cwd=script_path.parent,
         capture_output=capture_output,
     )
+
+
 
