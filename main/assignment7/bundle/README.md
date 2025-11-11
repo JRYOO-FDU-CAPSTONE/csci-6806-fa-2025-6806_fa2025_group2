@@ -1,9 +1,11 @@
 # Assignment 7 Bundle
 
 This directory provides thin wrapper scripts that re-use the original
-`assignments/a4` and `assignments/a5` source while giving Assignment 7 a
+`assignment4` and `assignment5` source while giving Assignment 7 a
 self-contained entry point. Each wrapper invokes the authoritative script in
-the assignments directory, preserving a single source of truth.
+the assignment directories, preserving a single source of truth.
+
+This is the main execution hub for all simulations and figure generation.
 
 ## Structure
 
