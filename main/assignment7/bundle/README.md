@@ -11,8 +11,39 @@ This is the main execution hub for all simulations and figure generation.
 
 - `scripts/` – wrapper entry points for simulations and figure generation
 - `configs/` – wrapper scripts for generating experiment configuration files (see `configs/README.md` for details)
-- `run_all.py` – optional helper for listing and executing wrappers (to be added)
+- `run_all.py` – helper script for listing and executing wrappers by name
 - `tests.md` – smoke-test log demonstrating wrapper execution (to be added)
+
+## Usage
+
+### Using run_all.py Helper
+
+The `run_all.py` script provides a convenient way to discover and execute wrappers:
+
+```bash
+# List all available wrappers
+python main/assignment7/bundle/run_all.py --list
+
+# List wrappers by category
+python main/assignment7/bundle/run_all.py --list config
+python main/assignment7/bundle/run_all.py --list a4
+python main/assignment7/bundle/run_all.py --list a5
+
+# Run a specific wrapper
+python main/assignment7/bundle/run_all.py create_a4_configs
+python main/assignment7/bundle/run_all.py generate_a4_figure_5
+python main/assignment7/bundle/run_all.py run_a5_tau_dt
+```
+
+### Direct Execution
+
+You can also run wrapper scripts directly:
+
+```bash
+# From project root
+python main/assignment7/bundle/scripts/generate_a4_peak_median_hit_rate_figures.py
+python main/assignment7/bundle/configs/create_a4_configs.py
+```
 
 ## Implemented Wrappers
 
