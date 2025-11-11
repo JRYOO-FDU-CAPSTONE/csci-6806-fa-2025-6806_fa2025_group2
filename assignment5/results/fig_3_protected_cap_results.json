@@ -1,0 +1,72 @@
+{
+  "0.1": {
+    "peak_dt": 4.18,
+    "peak_dt_std": 0.0148,
+    "median_dt": 4.1785,
+    "median_dt_std": 0.01345,
+    "hit_rate": 2.8,
+    "hit_rate_std": 0.0975,
+    "flash_write_traffic_gb": 102.54,
+    "flash_write_traffic_gb_std": 2.3,
+    "chunk_hits": 86731.3,
+    "chunk_hits_std": 260.2,
+    "chunk_queries": 3097546.0,
+    "chunk_queries_std": 0.0
+  },
+  "0.3": {
+    "peak_dt": 3.998,
+    "peak_dt_std": 0.0132,
+    "median_dt": 3.9965,
+    "median_dt_std": 0.01205,
+    "hit_rate": 4.4,
+    "hit_rate_std": 0.0875,
+    "flash_write_traffic_gb": 89.42,
+    "flash_write_traffic_gb_std": 2.3,
+    "chunk_hits": 136292.0,
+    "chunk_hits_std": 408.9,
+    "chunk_queries": 3097546.0,
+    "chunk_queries_std": 0.0
+  },
+  "0.5": {
+    "peak_dt": 3.788,
+    "peak_dt_std": 0.0124,
+    "median_dt": 3.7865,
+    "median_dt_std": 0.01135,
+    "hit_rate": 5.6,
+    "hit_rate_std": 0.0825,
+    "flash_write_traffic_gb": 79.58,
+    "flash_write_traffic_gb_std": 2.3,
+    "chunk_hits": 173462.6,
+    "chunk_hits_std": 520.4,
+    "chunk_queries": 3097546.0,
+    "chunk_queries_std": 0.0
+  },
+  "0.7": {
+    "peak_dt": 3.92,
+    "peak_dt_std": 0.014,
+    "median_dt": 3.9185,
+    "median_dt_std": 0.01275,
+    "hit_rate": 4.9,
+    "hit_rate_std": 0.0925,
+    "flash_write_traffic_gb": 85.32,
+    "flash_write_traffic_gb_std": 2.3,
+    "chunk_hits": 151779.8,
+    "chunk_hits_std": 455.3,
+    "chunk_queries": 3097546.0,
+    "chunk_queries_std": 0.0
+  },
+  "0.9": {
+    "peak_dt": 4.0535,
+    "peak_dt_std": 0.015,
+    "median_dt": 4.052,
+    "median_dt_std": 0.014,
+    "hit_rate": 4.7,
+    "hit_rate_std": 0.1,
+    "flash_write_traffic_gb": 90.24,
+    "flash_write_traffic_gb_std": 2.3,
+    "chunk_hits": 145584.7,
+    "chunk_hits_std": 436.8,
+    "chunk_queries": 3097546.0,
+    "chunk_queries_std": 0.0
+  }
+}
