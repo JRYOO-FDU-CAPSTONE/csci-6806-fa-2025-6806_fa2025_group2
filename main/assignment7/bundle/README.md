@@ -12,7 +12,7 @@ This is the main execution hub for all simulations and figure generation.
 - `scripts/` – wrapper entry points for simulations and figure generation
 - `configs/` – wrapper scripts for generating experiment configuration files (see `configs/README.md` for details)
 - `run_all.py` – helper script for listing and executing wrappers by name
-- `tests.md` – smoke-test log demonstrating wrapper execution (to be added)
+- `tests.md` – smoke-test log documenting wrapper execution tests and results (see `tests.md` for details)
 
 ## Usage
 
