@@ -84,6 +84,205 @@ cd csci-6806-fa-2025-6806_fa2025_group2
 
 ## Reproduction Instructions
 
+Include explicit commands for regenerating all figures and tables from your report, with filenames and runtimes.
+
+### Assignment 4 Figures
+
+#### Figure 1-3 - Baseline Comparison (Peak DT, Median DT, Hit Rate)
+
+**Command:**
+```bash
+python main/assignment7/bundle/scripts/generate_a4_peak_median_hit_rate_figures.py
+```
+
+**Output files:**
+- `assignment4/outputs/figure_1_peak_dt.png` and `.pdf`
+- `assignment4/outputs/figure_2_median_dt.png` and `.pdf`
+- `assignment4/outputs/figure_3_hit_rate.png` and `.pdf`
+- `assignment4/outputs/assignment_4_figures_1_2_3_combined.png` and `.pdf`
+
+**Runtime:** ~30 seconds
+
+**Note:** Requires baseline simulation results (e0_lru, e1_dtslru, e2_ede) in `runs/a4/`.
+
+---
+
+#### Figure 4 - Cache Size Sensitivity
+
+**Command:**
+```bash
+python main/assignment7/bundle/scripts/generate_a4_cache_size_sensitivity_figure.py
+```
+
+**Output files:**
+- `assignment4/outputs/figure_4_cache_size.png` and `.pdf`
+
+**Runtime:** ~30 seconds
+
+**Note:** Requires cache size sensitivity simulation results in `runs/a4/fig_4_cache_size_sensitivity/`.
+
+---
+
+#### Figure 5 - tau_DT Ablation Study
+
+**Command:**
+```bash
+python main/assignment7/bundle/scripts/generate_a4_tau_dt_ablation_figure.py
+```
+
+**Output files:**
+- `assignment4/outputs/figure_5_tau_dt.png` and `.pdf`
+- `assignment4/outputs/figure_5a_peak_dt_vs_tau_dt.png` and `.pdf`
+- `assignment4/outputs/figure_5b_hit_rate_vs_tau_dt.png` and `.pdf`
+
+**Runtime:** ~30 seconds
+
+**Note:** Requires tau_DT ablation simulation results in `runs/a4/fig_5_tau_dt_ablation/`.
+
+---
+
+#### Figure 6 - Protected Capacity Ablation
+
+**Command:**
+```bash
+python main/assignment7/bundle/scripts/generate_a4_protected_capacity_figure.py
+```
+
+**Output files:**
+- `assignment4/outputs/figure_6_protected_cap.png` and `.pdf`
+- `assignment4/outputs/figure_6a_peak_dt_vs_protected_cap.png` and `.pdf`
+- `assignment4/outputs/figure_6b_hit_rate_utilization_vs_protected_cap.png` and `.pdf`
+
+**Runtime:** ~30 seconds
+
+**Note:** Requires protected capacity ablation simulation results in `runs/a4/fig_6_protected_cap_ablation/`.
+
+---
+
+#### Figure 7 - alpha_TTI Adaptation Study
+
+**Command:**
+```bash
+python main/assignment7/bundle/scripts/generate_a4_alpha_tti_adaptation_figure.py
+```
+
+**Output files:**
+- `assignment4/outputs/figure_7_alpha_tti.png` and `.pdf`
+- `assignment4/outputs/figure_7a_peak_dt_vs_alpha_tti.png` and `.pdf`
+- `assignment4/outputs/figure_7b_hit_rate_adaptation_vs_alpha_tti.png` and `.pdf`
+
+**Runtime:** ~30 seconds
+
+**Note:** Requires alpha_TTI adaptation simulation results in `runs/a4/fig_7_alpha_tti_ablation/`.
+
+---
+
+### Assignment 5 Figures
+
+#### Figure 1 - Peak DT vs. tau_DT Sensitivity
+
+**Command:**
+```bash
+python main/assignment7/bundle/scripts/generate_a5_peak_dt_tau_dt_figure.py
+```
+
+**Output files:**
+- `assignment5/report/figures/figure_1_peak_dt_tau_dt.png` and `.pdf`
+
+**Runtime:** ~30 seconds
+
+**Note:** Requires aggregated results in `assignment5/results/fig_1_tau_dt_results.json`.
+
+---
+
+#### Figure 2 - Hit Rate vs. tau_DT Sensitivity
+
+**Command:**
+```bash
+python main/assignment7/bundle/scripts/generate_a5_hitrate_tau_dt_figure.py
+```
+
+**Output files:**
+- `assignment5/report/figures/figure_2_hitrate_tau_dt.png` and `.pdf`
+
+**Runtime:** ~30 seconds
+
+**Note:** Requires aggregated results in `assignment5/results/fig_1_tau_dt_results.json`.
+
+---
+
+#### Figure 3 - Peak DT vs. Protected Capacity
+
+**Command:**
+```bash
+python main/assignment7/bundle/scripts/generate_a5_protected_cap_figure.py
+```
+
+**Output files:**
+- `assignment5/report/figures/figure_3_peak_dt_protected_cap.png` and `.pdf`
+
+**Runtime:** ~30 seconds
+
+**Note:** Requires aggregated results in `assignment5/results/fig_3_protected_cap_results.json`.
+
+---
+
+#### Figure 4 - Peak DT vs. alpha_TTI
+
+**Command:**
+```bash
+python main/assignment7/bundle/scripts/generate_a5_alpha_tti_figure.py
+```
+
+**Output files:**
+- `assignment5/report/figures/figure_4_peak_dt_alpha_tti.png` and `.pdf`
+
+**Runtime:** ~30 seconds
+
+**Note:** Requires aggregated results in `assignment5/results/fig_4_alpha_tti_results.json`.
+
+---
+
+#### Figure 5 - Combined Sensitivity Summary
+
+**Command:**
+```bash
+python main/assignment7/bundle/scripts/generate_a5_combined_sensitivity_figure.py
+```
+
+**Output files:**
+- `assignment5/report/figures/figure_5_combined_sensitivity_summary.png` and `.pdf`
+
+**Runtime:** ~30 seconds
+
+**Note:** Requires all three result files: `fig_1_tau_dt_results.json`, `fig_3_protected_cap_results.json`, and `fig_4_alpha_tti_results.json`.
+
+---
+
+### Running All Figure Generation Commands
+
+To regenerate all figures at once:
+
+```bash
+# Assignment 4 figures
+python main/assignment7/bundle/scripts/generate_a4_peak_median_hit_rate_figures.py
+python main/assignment7/bundle/scripts/generate_a4_cache_size_sensitivity_figure.py
+python main/assignment7/bundle/scripts/generate_a4_tau_dt_ablation_figure.py
+python main/assignment7/bundle/scripts/generate_a4_protected_capacity_figure.py
+python main/assignment7/bundle/scripts/generate_a4_alpha_tti_adaptation_figure.py
+
+# Assignment 5 figures
+python main/assignment7/bundle/scripts/generate_a5_peak_dt_tau_dt_figure.py
+python main/assignment7/bundle/scripts/generate_a5_hitrate_tau_dt_figure.py
+python main/assignment7/bundle/scripts/generate_a5_protected_cap_figure.py
+python main/assignment7/bundle/scripts/generate_a5_alpha_tti_figure.py
+python main/assignment7/bundle/scripts/generate_a5_combined_sensitivity_figure.py
+```
+
+**Total runtime for all figures:** ~5 minutes (assuming simulation results already exist)
+
+**Note:** All figure generation commands require simulation results to exist. If simulations have not been run, execute the simulation wrappers first (see `main/assignment7/bundle/README.md` for simulation commands).
+
 ## Validation Checklist
 
 
