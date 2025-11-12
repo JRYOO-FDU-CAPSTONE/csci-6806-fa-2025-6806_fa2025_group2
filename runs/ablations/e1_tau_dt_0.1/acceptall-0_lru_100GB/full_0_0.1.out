@@ -1,0 +1,11 @@
+Logging to runs/ablations/e1_tau_dt_0.1/acceptall-0_lru_100GB/full_0_0.1.out
+2025-11-04 23:06:22> Using custom eviction policy: PolicyDTSLRU from BCacheSim.cachesim.policies_a4
+2025-11-04 23:06:22> Policy parameters: {'tau_dt': 0.1, 'seek_time_ms': 5.0, 'bandwidth_mbps': 100.0}
+2025-11-04 23:06:22> Streaming data/tectonic/201910/Region1/full_0_0.1.trace (/tmp/cache-sim-accesses-201910_full_0_0.1_d56c4d_5a0a05_batched.pkl)
+2025-11-04 23:06:22> {'total_iops': 147794, 'total_iops_get': 127305, 'total_iops_put': 20489, 'max_key': ('9997015', Acc(block=9997015, offset=0, size=8388608, ts=1572298799.127971, features=op=OpType.GET_PERM, pipeline=1, namespace=9, user=23)), 'trace_duration_secs': 604641.98, 'start_ts': 1572074461.57806, 'end_ts': 1572679103.557401, 'filename': 'data/tectonic/201910/Region1/full_0_0.1.trace', 'trace_hash': b'859229345a0fa792582df0db8cd56c4d', 'kwargs_hash': '5a0a05', 'kwargs': {'only_gets': False}}
+2025-11-04 23:06:22> Command:
+2025-11-04 23:08:19> /Users/mishuthescarecrow/Baleen-FAST24/BCacheSim/cachesim/../run_py.sh py /Users/mishuthescarecrow/Baleen-FAST24/BCacheSim/cachesim/simulate_ap.py --config /Users/mishuthescarecrow/Baleen-FAST24/runs/configs/ablations/e1_tau_dt_0.1.json --ignore-existing
+2025-11-04 23:08:19> Removed file runs/ablations/e1_tau_dt_0.1/acceptall-0_lru_100GB/full_0_0.1_cache_perf.txt.part.lzma
+2025-11-04 23:08:19> Removed file runs/ablations/e1_tau_dt_0.1/acceptall-0_lru_100GB/full_0_0.1_cache_perf.txt.stats.part.lzma
+2025-11-04 23:08:19> Complete
+2025-11-04 23:08:19> 

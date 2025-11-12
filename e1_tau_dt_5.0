@@ -1,0 +1,13 @@
+{
+  "policy": "PolicyDTSLRU",
+  "policy_module": "BCacheSim.cachesim.policies_a4",
+  "policy_kwargs": {"tau_dt": 5.0},
+  "ap": "acceptall",
+  "prefetch_when": "never",
+  "trace": "",
+  "output_dir": "e1_tau_dt_5.0",
+  "size_gb": ,
+  "seek_time_ms": ,
+  "bandwidth_mbps": ,
+  "stats_start": 0
+}

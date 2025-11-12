@@ -1,8 +1,5 @@
-# Ignore everything in this directory
-*
-# Jupyter Notebook
+tmp/
 .ipynb_checkpoints
-# Except this file
-!.gitignore
-!config.json
-!*/
+notebooks/paper-figs/figs
+
+.DS_Store

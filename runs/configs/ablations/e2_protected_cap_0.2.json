@@ -1,0 +1,15 @@
+{
+  "policy": "PolicyEDE",
+  "policy_module": "BCacheSim.cachesim.policies_a4",
+  "policy_kwargs": {"alpha_tti": 0.5, "protected_cap": 0.2},
+  "eviction_policy": "LRU-custom",
+  "ap": "acceptall",
+  "ap_threshold": 0.0,
+  "prefetch_when": "never",
+  "trace": "data/tectonic/201910/Region1/full_0_0.1.trace",
+  "output_dir": "runs/ablations/e2_protected_cap_0.2",
+  "size_gb": 100,
+  "seek_time_ms": 5.0,
+  "bandwidth_mbps": 100,
+  "stats_start": 0
+}
