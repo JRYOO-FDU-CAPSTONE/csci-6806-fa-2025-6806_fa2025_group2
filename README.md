@@ -45,7 +45,16 @@ Notes:
 
 Provide step-by-step commands (with approximate time estimates).
 
-### Step 1 - Create virtual environment
+### Step 1 - Clone repository
+
+**Time estimate: ~1-2 minutes**
+
+```bash
+git clone --recurse-submodules https://github.com/JRYOO-FDU-CAPSTONE/csci-6806-fa-2025-6806_fa2025_group2.git
+cd csci-6806-fa-2025-6806_fa2025_group2
+```
+
+### Step 2 - Create virtual environment
 
 **Time estimate: ~30 seconds**
 
@@ -53,7 +62,7 @@ Provide step-by-step commands (with approximate time estimates).
 python3 -m venv baleen-env
 ```
 
-### Step 2 - Activate virtual environment
+### Step 3 - Activate virtual environment
 
 **Time estimate: ~5 seconds**
 
@@ -63,7 +72,7 @@ source baleen-env/bin/activate
 
 **Note:** On Windows, use `baleen-env\Scripts\activate` instead.
 
-### Step 3 - Install dependencies
+### Step 4 - Install dependencies
 
 **Time estimate: ~2-5 minutes**
 
@@ -72,15 +81,6 @@ pip install -r BCacheSim/install/requirements.txt
 ```
 
 **Note:** The requirements file includes all necessary packages. Alternatively, use Conda: `conda env create -f BCacheSim/install/env_cachelib-py-3.11.yaml` then `conda activate cachelib-py-3.11`.
-
-### Step 4 - Clone repository
-
-**Time estimate: ~1-2 minutes**
-
-```bash
-git clone --recurse-submodules https://github.com/JRYOO-FDU-CAPSTONE/csci-6806-fa-2025-6806_fa2025_group2.git
-cd csci-6806-fa-2025-6806_fa2025_group2
-```
 
 ## Reproduction Instructions
 
