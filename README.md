@@ -1,4 +1,4 @@
-# Assignment 7 Artifact Documentation
+# Project Documentation
 
 ## System Requirements
 OS:
